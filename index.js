@@ -136,3 +136,9 @@ const merged = { ...obj1, ...obj2 };
 let name = "John";
 let greeting = `Hello, ${name}!`;
 console.log(greeting);
+
+console.log(10 + " apples");
+function sum(a, b) { return a + b; }
+
+const multiply = function(a, b) { return a * b; };
+
