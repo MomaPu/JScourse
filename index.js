@@ -49,6 +49,22 @@ const userProfile = {
 };
 console.log(userProfile);
 
+// В браузере:
+console.log(window.innerHeight); // высота окна
+// В Node.js:
+console.log(global.process.version); // версия Node.js
+// Универсально:
+console.log(globalThis === window); // true в браузере
+
+const myCity = {
+    city: 'My city',
+    greeting() {
+        console.log('Greetings!');
+    }
+};
+myCity.greeting();
+
+
 
 
 
