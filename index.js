@@ -182,6 +182,26 @@ console.log(result); // [3, 6, 9]
 const wrong = arr.map((x) => { x * 3; });
 console.log(wrong);
 
+const userProfile = { name: "Матвей", commentQuantity: 23, isAgreement: true };
+const { name, commentQuantity } = userProfile;
+console.log(name);
+console.log(commentQuantity);
+
+const fruits = ["apple", "banana"];
+const [fruitOne, fruitTwo] = fruits;
+console.log(fruitOne); // "apple"
+console.log(fruitTwo); // "banana"
+
+
+const userInfo = ({ name, commentQuantity }) => {
+    if (!commentQuantity) return `User ${name} has no comments`;
+    return `User ${name} has ${commentQuantity} comments`;
+};
+const profile = { name: "Alice", commentQuantity: 5 };
+console.log(userInfo(profile));
+
+
+
 
 
 
