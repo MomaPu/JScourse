@@ -242,5 +242,28 @@ switch (month) {
 }
 
 
+for (let i = 0; i < 5; i++) {
+    console.log(i);
+}
+
+const arr = ["frost", "second", "third"];
+
+arr.forEach((element, index) => console.log(`${index}: ${element}`));
+
+let i = 0;
+while (i < 5) {
+    console.log(i);
+    i++;
+}
+
+let i = 0;
+do {
+    console.log(i); // 0
+    i++;
+} while (i < 0);
+
+
+
+
 
 
