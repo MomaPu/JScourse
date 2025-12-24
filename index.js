@@ -33,4 +33,22 @@ delete city.population;
 
 console.log(city);
 
+let value = 10;
+value = 'текст';
+console.log(value); // 'текст'
+
+const fixed = 100;
+
+
+const name = 'Андрей';
+const age = 23;
+const userProfile = {
+    name,
+    age,
+    isStudent: false
+};
+console.log(userProfile);
+
+
+
 
