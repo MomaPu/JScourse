@@ -154,3 +154,11 @@ const createPost = (post, createdAt = new Date()) => ({
 const post = { id: 1, title: "News" };
 console.log(createPost(post));
 
+try {
+    throw new Error("Something went wrong");
+} catch (error) {
+    console.error(error.message);
+}
+console.log("Code continues");
+
+
