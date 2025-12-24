@@ -161,4 +161,16 @@ try {
 }
 console.log("Code continues");
 
+const arr = [1, 2];
+arr.push(3);
+console.log(arr);
+arr.pop();
+console.log(arr);
+
+const numbers = [1, 2];
+numbers.push(3, 4);
+console.log(numbers);
+
+
+
 
