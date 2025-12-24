@@ -167,9 +167,21 @@ console.log(arr);
 arr.pop();
 console.log(arr);
 
-const numbers = [1, 2];
-numbers.push(3, 4);
+const fruits = ["apple", "banana", "cherry"];
+fruits.forEach((fruit, index) => console.log(`${index}: ${fruit}`));
+
+const numbers = [1, 2, 3];
+const doubled = numbers.map((num) => num * 2);
+console.log(doubled);
 console.log(numbers);
+
+const arr = [1, 2, 3];
+const result = arr.map((x) => x * 3);
+console.log(result); // [3, 6, 9]
+
+const wrong = arr.map((x) => { x * 3; });
+console.log(wrong);
+
 
 
 
