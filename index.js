@@ -1,121 +1,105 @@
+'use strict';
+
+const globalVar = 'Я глобальная';
+let changeableVar = 100;
+
 const user = {
-    name: 'Андрей',
-    age: 30,
-    isStudent: true
-};
+    name: 'Матвей',
+    age: 25,
+    city: 'Дзержинск',
 
-const userName = 'Андрей';
-let userAge = 25;
-userAge = 26;
+    // Сокращённый метод (ES6)
+    greet() {
+        console.log(`Привет, я ${this.name}`);
+    },
 
-console.log('Hello world');
-console.dir(console);
-console.table({a: 1, b: 2});
-console.log(userName, userAge);
-
-
-const str = 'текст';
-const num = 42;
-const bool = true;
-const empty = null;
-const notDefined = undefined;
-const obj = { key: 'value' };
-
-
-const city = {
-    name: 'My city',
-    population: 8000000
-};
-
-city.name = 'Dzerzhinsk';
-city.country = 'RUSSIA';
-delete city.population;
-
-console.log(city);
-
-let value = 10;
-value = 'текст';
-console.log(value); // 'текст'
-
-const fixed = 100;
-
-
-const name = 'Андрей';
-const age = 23;
-const userProfile = {
-    name,
-    age,
-    isStudent: false
-};
-console.log(userProfile);
-
-// В браузере:
-console.log(window.innerHeight); // высота окна
-// В Node.js:
-console.log(global.process.version); // версия Node.js
-// Универсально:
-console.log(globalThis === window); // true в браузере
-
-const myCity = {
-    city: 'My city',
-    greeting() {
-        console.log('Greetings!');
+    // Обычный метод
+    updateAge(newAge) {
+        this.age = newAge;
     }
 };
-myCity.greeting();
 
-const post = {
-    title: 'My post',
-    likes: 5
-};
+user.country = 'RUSSIA';
+delete user.city;
 
-const postString = JSON.stringify(post);
-console.log(postString);
-
-const parsedPost = JSON.parse(postString);
-console.log(parsedPost.title);
-
-const person = { name: 'Bob', age: 25 };
-const personCopy = Object.assign({}, person);
-personCopy.age = 26;
-console.log(person.age);
-
-const personCopy2 = { ...person };
-personCopy2.name = 'Alice';
-console.log(person.name); // 'Bob'
-
-const deepCopy = JSON.parse(JSON.stringify(person));
+const userJSON = JSON.stringify(user);
+const parsedUser = JSON.parse(userJSON);
 
 function sum(a, b) {
-    const c = a + b;
-    return c;
-}
-const result = sum(5, 3);
-console.log(result);
-
-function printName() {
-    console.log('Матвей');
+    return a + b;
 }
 
-setTimeout(printName, 2000);
+const multiply = function(x, y) {
+    return x * y;
+};
 
-function printName() {
-    console.log('Андрей');
+function processNumbers(num1, num2, callback) {
+    return callback(num1, num2);
 }
 
-setTimeout(printName, 2000);
+const result = processNumbers(5, 3, sum); // 8
 
-if (true) {
-    const blockVar = 'inside block';
+const original = { a: 1, b: { inner: 'текст' } };
+
+
+const shallowCopy = { ...original };
+
+const deepCopy = JSON.parse(JSON.stringify(original));
+
+if (typeof window !== 'undefined') {
+    console.log('Высота окна:', window.innerHeight);
+} else {
+    console.log('Запущено не в браузере (вероятно, Node.js)');
 }
-// console.log(blockVar); // ошибка
+
+console.log('Глобальный объект:', globalThis);
+
+console.log('Лог:', user);
+console.dir(user); // Структура объекта
+console.table([user, parsedUser]); // Табличный вывод
+
+function scopeExample() {
+    const localVar = 'Я локальная';
+    console.log(localVar);
+    console.log(globalVar); // Доступ к глобальной
+
+    // Вложенная функция
+    function inner() {
+        console.log('Внутренняя функция видит:', localVar);
+    }
+    inner();
+}
+
+scopeExample();
 
 
+let a = 10;
+let b = 5;
 
+const sumResult = a + b;
+const isGreater = a > b;
 
+const logicalAnd = (a > 0) && (b > 0);
+const logicalOr = (a < 0) || (b > 0);
 
+// Присваивание с операцией
+a += 3; // a = 13
 
+user.greet();
+user.updateAge(26);
+console.log('Новый возраст:', user.age);
 
+console.log('Старт');
+setTimeout(() => {
+    console.log('Выполнено через 500мс');
+}, 500);
 
+console.log('Тип user:', typeof user);
+console.log('Тип sum:', typeof sum);
 
-
+console.log('\n=== ИТОГИ ===');
+console.log('Глобальная переменная:', globalVar);
+console.log('Объект user:', user);
+console.log('user в JSON:', userJSON);
+console.log('Результат сложения:', result);
+console.log('Копия original:', deepCopy);
