@@ -75,6 +75,44 @@ console.log(postString);
 const parsedPost = JSON.parse(postString);
 console.log(parsedPost.title);
 
+const person = { name: 'Bob', age: 25 };
+const personCopy = Object.assign({}, person);
+personCopy.age = 26;
+console.log(person.age);
+
+const personCopy2 = { ...person };
+personCopy2.name = 'Alice';
+console.log(person.name); // 'Bob'
+
+const deepCopy = JSON.parse(JSON.stringify(person));
+
+function sum(a, b) {
+    const c = a + b;
+    return c;
+}
+const result = sum(5, 3);
+console.log(result);
+
+function printName() {
+    console.log('Матвей');
+}
+
+setTimeout(printName, 2000);
+
+function printName() {
+    console.log('Андрей');
+}
+
+setTimeout(printName, 2000);
+
+if (true) {
+    const blockVar = 'inside block';
+}
+// console.log(blockVar); // ошибка
+
+
+
+
 
 
 
